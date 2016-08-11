@@ -1,0 +1,16 @@
+language: ruby
+ 
+rvm:
+  - 2.3.1
+ 
+bundler_args: --without production
+ 
+cache: bundler
+ 
+before_script:
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+  - bundle exec rake db:test:clone
+
+script:
+  - bundle exec rspec
