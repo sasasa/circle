@@ -32,8 +32,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :production do
-  gem 'pg' # HerokuではPostgreSQLを利用するため必要
-  gem 'rails_12factor' # HerokuでRailsを動作させるための細かな調整を行ってくれる
+  gem 'pg' # For Heroku
+  gem 'rails_12factor' # For Heroku Rails
 end
 
 group :development, :test do
@@ -43,6 +43,11 @@ group :development, :test do
   gem 'capybara'
   gem 'turnip'
   gem 'sqlite3'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'capybara-webkit'
+  gem 'headless'
+  gem 'poltergeist'
 end
 
 group :development do
