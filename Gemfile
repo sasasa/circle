@@ -55,7 +55,7 @@ group :development, :test do
   gem 'capybara'
   gem 'turnip'
   gem 'sqlite3'
-
+  gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'capybara-webkit'
   gem 'headless'
