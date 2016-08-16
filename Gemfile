@@ -9,11 +9,16 @@ gem 'rails', '~> 5.0.0'
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'honoka-rails' #v3
+#gem 'bootstrap' #v4
+#gem 'bootstrap-sass' #v3
+gem 'country_select'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 
+gem 'simple_form'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -32,22 +37,57 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :production do
-  gem 'pg' # HerokuではPostgreSQLを利用するため必要
-  gem 'rails_12factor' # HerokuでRailsを動作させるための細かな調整を行ってくれる
+  gem 'pg' # For Heroku
+  gem 'rails_12factor' # For Heroku Rails
 end
 
+group :test do
+  gem 'rails-controller-testing'
+  gem "shoulda-matchers"
+end
 group :development, :test do
+  # Rspec
+  gem 'rspec-rails'
+  # test fixture
+  gem 'factory_girl_rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'rspec-rails'
   gem 'capybara'
   gem 'turnip'
   gem 'sqlite3'
+
+  gem 'database_cleaner'
+  gem 'capybara-webkit'
+  gem 'headless'
+  gem 'poltergeist'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
+  # Pry & extensions
+  gem 'pry-rails'
+  gem 'pry-coolline'
+  gem 'pry-byebug'
+  gem 'rb-readline'
+  # Show SQL result in Pry console
+  gem 'hirb'
+  gem 'hirb-unicode'
+  gem 'awesome_print'
+  # PG/MySQL Log Formatter
+  gem 'rails-flog'
+
+  gem 'guard'
+  gem 'guard-rspec', require: false
+  gem 'guard-livereload', require: false
+
+  gem 'listen'
+  gem 'spring'
+  gem 'spring-watcher-listen'
+  gem "spring-commands-rspec"
+  gem 'rubocop', require: false
+  gem 'spring-commands-rubocop'
+  gem "spring-commands-cucumber"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

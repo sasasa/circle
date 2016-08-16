@@ -1,0 +1,1 @@
+json.array! @user_lessons, partial: 'user_lessons/user_lesson', as: :user_lesson
