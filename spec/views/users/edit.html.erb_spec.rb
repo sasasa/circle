@@ -2,28 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "users/edit", type: :view do
   before(:each) do
-    school =
-      School.create!(
-        :name => "Name2"
-      )
-    @user = assign(:user, User.create!(
-      :admin => false,
-      :name => "MyString",
-      :email => "MyString",
-      :url => "MyString",
-      :phone => "MyString",
-      :password => "MyString",
-      :comment => "MyText",
-      :age => 1,
-      :study_hour => 1,
-      :volume => 1.5,
-      :login_time => DateTime.now,
-      :birthday => Date.today,
-      :wake_up_time => DateTime.now,
-      :country => "MyString",
-      :time_zone => "MyString",
-      :school => school
-    ))
+    @user = assign(:user, create(:user) do |u|
+      u.school = create(:school)
+    end)
   end
 
   it "renders the edit user form" do
@@ -66,9 +47,9 @@ RSpec.describe "users/edit", type: :view do
 
       assert_select "select#user_country[name=?]", "user[country]"
 
-      assert_select "input#user_time_zone[name=?]", "user[time_zone]"
+      assert_select "select#user_time_zone[name=?]", "user[time_zone]"
 
-      assert_select "input#user_school_id[name=?]", "user[school_id]"
+      assert_select "select#user_school_id[name=?]", "user[school_id]"
     end
   end
 end

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby "2.3.1"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 # Use sqlite3 as the database for Active Record
@@ -17,10 +17,17 @@ gem 'country_select'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
-
+gem 'rails-i18n'
 gem 'simple_form'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+
+gem 'execjs'
+gem 'therubyracer', platforms: :ruby
+# require "execjs"
+# therubyracer が利用可能
+# ExecJS.runtime.name # => "therubyracer (V8)"
+# therubyracer が利用不可能
+# ExecJS.runtime.name # => "Node.js (V8)"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -31,7 +38,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -46,6 +53,7 @@ group :test do
   gem "shoulda-matchers"
 end
 group :development, :test do
+  gem 'annotate'
   # Rspec
   gem 'rspec-rails'
   # test fixture
@@ -55,7 +63,6 @@ group :development, :test do
   gem 'capybara'
   gem 'turnip'
   gem 'sqlite3'
-  gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'capybara-webkit'
   gem 'headless'
@@ -63,6 +70,11 @@ group :development, :test do
 end
 
 group :development do
+  gem "tapp" # bundle exec tapp grep
+  gem "view_source_map"
+  gem 'rack-mini-profiler'
+  gem "better_errors"
+  gem "binding_of_caller"
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
   # Pry & extensions

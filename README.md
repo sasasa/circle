@@ -24,7 +24,7 @@ rails g simple_form:install --bootstrap
 
 bundle exec spring binstub --all
 bin/rubocop -only Lint/Debugger,Lint/DuplicateMethods,Lint/UnreachableCode,Lint/Void
-‚¨‚©‚µ‚­‚È‚Á‚½‚ç
+
 rm -r bin
 bundle exec rake rails:update:bin
 bundle install --binstubs
@@ -40,6 +40,9 @@ cd direnv
 sudo make install
 .envrc
 
+bundle exec annotate
+bundle exec annotate --routes
+rails g annotate:install
 
 bundle exec guard init rspec
 bundle exec guard init livereload
@@ -57,8 +60,10 @@ rails g scaffold School name:string
 rails g scaffold Group name:string
 rails g scaffold User admin:boolean name:string email:string url:string phone:string password:string comment:text age:integer study_hour:integer volume:float login_time:datetime birthday:date wake_up_time:time country:string time_zone:string school:references
 
+(rake secret)
+ruby -e "require 'securerandom'; print SecureRandom.hex(64)" > ~/.secret_key_base
+export SECRET_KEY_BASE=`cat ~/.secret_key_base`
 
-has_many
-belongs_to
-has_and_belongs_to_many
+rake assets:precompile
+production pbluc file serv (RAILS_SERVE_STATIC_FILES)
 ```
