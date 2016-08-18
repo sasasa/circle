@@ -8,8 +8,8 @@ bundler_args: --without production
 cache: bundler
 
 before_script:
-  - rails db:environment:set RAILS_ENV=test
-  - rails db:migrate:reset RAILS_ENV=test
+  - rake db:environment:set RAILS_ENV=test
+  - rake db:migrate:reset RAILS_ENV=test
 
 script:
   - rspec
