@@ -1,0 +1,8 @@
+= simple_form_for(@user_lesson) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :score
+    = f.association :user
+    = f.association :lesson
+  .form-actions
+    = f.button :submit

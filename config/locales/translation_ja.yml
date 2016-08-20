@@ -1,0 +1,58 @@
+ja:
+  activerecord:
+    models:
+      group: グループ  #g
+      habtm_groups: HABTMグループ  #g
+      habtm_users: HABTMユーザー  #g
+      lesson: レッスン  #g
+      school: 学校  #g
+      user: ユーザー  #g
+      user_lesson: ユーザーレッスン  #g
+
+    attributes:
+      group:
+        name: 名  #g
+        users: ユーザー  #g
+
+      habtm_groups:
+        group: :activerecord.models.group  #g
+        left_side: :activerecord.models.left_side  #g
+
+      habtm_users:
+        left_side: :activerecord.models.left_side  #g
+        user: :activerecord.models.user  #g
+
+      lesson:
+        name: 名  #g
+        user_lessons: ユーザーのレッスン  #g
+        users: ユーザー  #g
+
+      school:
+        name: 名  #g
+        users: ユーザー  #g
+
+      user:
+        admin: 管理者  #g
+        age: 年齢  #g
+        birthday: お誕生日  #g
+        comment: コメント  #g
+        country: 国  #g
+        email: Eメール  #g
+        groups: グループ  #g
+        lessons: レッスン  #g
+        login_time: ログイン時刻  #g
+        name: 名  #g
+        password: パスワード  #g
+        phone: 電話  #g
+        school: :activerecord.models.school  #g
+        study_hour: 勉強時間  #g
+        time_zone: タイムゾーン  #g
+        url: URL  #g
+        user_lessons: ユーザーのレッスン  #g
+        volume: ボリューム  #g
+        wake_up_time: 起床時間  #g
+
+      user_lesson:
+        lesson: :activerecord.models.lesson  #g
+        score: スコア  #g
+        user: :activerecord.models.user  #g

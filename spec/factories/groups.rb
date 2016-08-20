@@ -10,6 +10,6 @@
 
 FactoryGirl.define do
   factory :group do
-    name "MyString"
+    name { Faker::Book.genre }
   end
 end

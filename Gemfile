@@ -19,8 +19,17 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'rails-i18n'
 gem 'simple_form'
-# See https://github.com/rails/execjs#readme for more supported runtimes
+gem 'kaminari'
+gem 'validates_timeliness'
+gem 'email_validator'
 
+gem "hamlit"
+#gem "haml"
+
+gem 'draper'
+gem 'activemodel-serializers-xml'
+
+# See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'execjs'
 gem 'therubyracer', platforms: :ruby
 # require "execjs"
@@ -31,6 +40,7 @@ gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -53,11 +63,11 @@ group :test do
   gem "shoulda-matchers"
 end
 group :development, :test do
-  gem 'annotate'
   # Rspec
   gem 'rspec-rails'
   # test fixture
   gem 'factory_girl_rails'
+  gem 'faker'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'capybara'
@@ -70,6 +80,11 @@ group :development, :test do
 end
 
 group :development do
+  gem 'erb2haml', require: false
+  gem "bullet"
+  gem 'annotate', require: false
+  gem 'rails-erd', require: false
+  gem 'i18n_generators', require: false
   gem "tapp" # bundle exec tapp grep
   gem "view_source_map"
   gem 'rack-mini-profiler'
@@ -89,17 +104,17 @@ group :development do
   # PG/MySQL Log Formatter
   gem 'rails-flog'
 
-  gem 'guard'
+  gem 'guard', require: false
   gem 'guard-rspec', require: false
   gem 'guard-livereload', require: false
 
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
-  gem "spring-commands-rspec"
+  gem "spring-commands-rspec", require: false
   gem 'rubocop', require: false
-  gem 'spring-commands-rubocop'
-  gem "spring-commands-cucumber"
+  gem 'spring-commands-rubocop', require: false
+  gem "spring-commands-cucumber", require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

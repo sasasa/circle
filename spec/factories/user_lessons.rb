@@ -12,7 +12,7 @@
 
 FactoryGirl.define do
   factory :user_lesson do
-    score 1
+    score { Faker::Number.between(29, 100) }
     user nil
     lesson nil
   end

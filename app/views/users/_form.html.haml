@@ -1,0 +1,21 @@
+= simple_form_for(@user) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :admin
+    = f.input :name
+    = f.input :email
+    = f.input :url
+    = f.input :phone
+    = f.input :password
+    = f.input :comment
+    = f.input :age
+    = f.input :study_hour
+    = f.input :volume
+    = f.input :login_time
+    = f.input :birthday
+    = f.input :wake_up_time
+    = f.input :country
+    = f.input :time_zone
+    = f.association :school
+  .form-actions
+    = f.button :submit

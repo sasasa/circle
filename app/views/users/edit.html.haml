@@ -1,0 +1,5 @@
+%h1= t(:Editing, model: user_t)
+= render 'form', user: @user
+= link_to t(:Show), @user
+|
+= link_to t(:Back), users_path

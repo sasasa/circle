@@ -1,0 +1,52 @@
+%p#notice= notice
+%p
+  %strong= user_t(:admin)
+  = @user.admin
+%p
+  %strong= user_t(:name)
+  = @user.name
+%p
+  %strong= user_t(:email)
+  = @user.email
+%p
+  %strong= user_t(:url)
+  = @user.url
+%p
+  %strong= user_t(:phone)
+  = @user.phone
+%p
+  %strong= user_t(:password)
+  = @user.password
+%p
+  %strong= user_t(:comment)
+  = @user.comment
+%p
+  %strong= user_t(:age)
+  = @user.age
+%p
+  %strong= user_t(:study_hour)
+  = @user.study_hour
+%p
+  %strong= user_t(:volume)
+  = @user.volume
+%p
+  %strong= user_t(:login_time)
+  = @user.login_time
+%p
+  %strong= user_t(:birthday)
+  = @user.birthday
+%p
+  %strong= user_t(:wake_up_time)
+  = @user.wake_up_time
+%p
+  %strong= user_t(:country)
+  = @user.country
+%p
+  %strong= user_t(:time_zone)
+  = @user.time_zone
+%p
+  %strong= user_t(:school)
+  = @user.school&.name
+= link_to t('Edit'), edit_user_path(@user)
+|
+= link_to t('Back'), users_path

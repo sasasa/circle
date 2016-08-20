@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Score:
+  = @user_lesson.score
+%p
+  %strong User:
+  = @user_lesson.user.name
+%p
+  %strong Lesson:
+  = @user_lesson.lesson.name
+= link_to 'Edit', edit_user_lesson_path(@user_lesson)
+|
+= link_to 'Back', user_lessons_path

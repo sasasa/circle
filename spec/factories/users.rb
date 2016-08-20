@@ -25,21 +25,21 @@
 
 FactoryGirl.define do
   factory :user do
-    admin false
-    name "MyString"
-    email "MyString"
-    url "MyString"
-    phone "MyString"
-    password "MyString"
-    comment "MyText"
-    age 1
-    study_hour 1
-    volume 1.5
-    login_time { DateTime.now }
-    birthday { Date.today }
-    wake_up_time { Time.now }
-    country "MyString"
-    time_zone "JST"
+    admin { Faker::Boolean.boolean(0.2) }
+    name { Faker::Name.name }
+    email { Faker::Internet.free_email }
+    url { Faker::Internet.url }
+    phone { Faker::PhoneNumber.phone_number }
+    password { Faker::Internet.password(10, 20) }
+    comment { Faker::Lorem.paragraph(2, false, 4) }
+    age { Faker::Number.between(18, 26) }
+    study_hour { Faker::Number.between(0, 12) }
+    volume { Faker::Number.decimal(2, 2) }
+    login_time { Faker::Time.between(10.days.ago, Date.today, :all) }
+    birthday { Faker::Date.between(26.years.ago, 18.years.ago) }
+    wake_up_time { Faker::Time.between(23.hours.ago, 1.hours.ago, :morning) }
+    country { Faker::Address.country }
+    time_zone { Faker::Address.time_zone }
     school nil
   end
 end

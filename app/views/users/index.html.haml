@@ -1,0 +1,47 @@
+%p#notice= notice
+%h1= user_t
+= paginate @users
+%table
+  %thead
+    %tr
+      %th= user_t(:admin)
+      %th= user_t(:name)
+      %th= user_t(:email)
+      %th= user_t(:url)
+      %th= user_t(:phone)
+      %th= user_t(:password)
+      %th= user_t(:comment)
+      %th= user_t(:age)
+      %th= user_t(:study_hour)
+      %th= user_t(:volume)
+      %th= user_t(:login_time)
+      %th= user_t(:birthday)
+      %th= user_t(:wake_up_time)
+      %th= user_t(:country)
+      %th= user_t(:time_zone)
+      %th= user_t(:school)
+      %th{:colspan => "3"}
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.admin
+        %td= user.name
+        %td= user.email
+        %td= user.url
+        %td= user.phone
+        %td= user.password
+        %td= user.comment
+        %td= user.age
+        %td= user.study_hour
+        %td= user.volume
+        %td= user.login_time
+        %td= user.birthday
+        %td= user.wake_up_time
+        %td= user.country
+        %td= user.time_zone
+        %td= user.school&.name
+        %td= link_to t(:Show), user
+        %td= link_to t(:Edit), edit_user_path(user)
+        %td= link_to t(:Destroy), user, method: :delete, data: { confirm: t('Are you sure?') }
+%br/
+= link_to t(:New, model: user_t), new_user_path

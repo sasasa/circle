@@ -64,6 +64,25 @@ rails g scaffold User admin:boolean name:string email:string url:string phone:st
 ruby -e "require 'securerandom'; print SecureRandom.hex(64)" > ~/.secret_key_base
 export SECRET_KEY_BASE=`cat ~/.secret_key_base`
 
+rails g kaminari:config
+rails g kaminari:views bootstrap3 -e haml
+rails g kaminari:views default -e haml
+concern :paginatable do
+  get '(page/:page)', :action => :index, :on => :collection, :as => ''
+end
+resources :my_resources, :concerns => :paginatable
+
+rails g validates_timeliness:install
+wget -O config/locales/ja.yml https://raw.githubusercontent.com/svenfuchs/rails-i18n/master/rails/locale/ja.yml
+
+bundle exec erd --filetype=png
+
+rails g i18n ja (ja.yml translation_ja.yml)
+rails g i18n_translation ja (translation_ja.yml)
+
+rake haml:convert_erbs
+rake haml:replace_erbs
+
 rake assets:precompile
 production pbluc file serv (RAILS_SERVE_STATIC_FILES)
 ```

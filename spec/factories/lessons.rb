@@ -10,6 +10,6 @@
 
 FactoryGirl.define do
   factory :lesson do
-    name "MyString"
+    name { Faker::Educator.course }
   end
 end
